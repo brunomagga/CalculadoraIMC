@@ -2,51 +2,50 @@ package com.example.meuprimeiroprojeto
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+const val KEY_RESULT = "ResultActivity.KEY_IMC"
 class ResultActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_result2)
 
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val result = intent.getFloatExtra(KEY_RESULT, 0f)
 
-        val tvResult = findViewById<TextView>(R.id.textview_result)
-        val tvClassificacao = findViewById<TextView>(R.id.textView_classificacao)
-
-        val result = intent.getFloatExtra("EXTRA_RESULT", 0.1f)
+        val tvResult = findViewById<TextView>(R.id.tv_result)
+        val tvClassificação = findViewById<TextView>(R.id.tv_classificação)
 
         tvResult.text = result.toString()
 
-        var classificacao = ""
 
-        if(result < 18.5f){
-            classificacao = "ABAIXO DO PESO"
+        val classificação = if(result <= 18.5f){
+            "ABAIXO DO PESO"
         }else if(result in 18.5f..24.9f) {
-            classificacao = "NORMAL"
+            "NORMAL"
         }else if(result in 25f..29.9f){
-            classificacao = "SOBREPESO"
+            "SOBREPESO"
         }else if(result in 30f..39.9f){
-            classificacao = "OBESIDADE"
+            "OBESIDADE"
         }else {
-            classificacao = "OBESIDADE GRAVE"
+            "OBESIDADE GRAVE"
         }
+        tvClassificação.text = classificação
 
-        tvClassificacao.text = getString(R.string.message_classificacao, classificacao)
-        }
 
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        finish()
-        return super.onContextItemSelected(item)
+
+
+
+
+
+
+
     }
-    }
+}
 
-
-
-
+       // tvClassificacao.text = getString(R.string.message_classificacao, classificacao)

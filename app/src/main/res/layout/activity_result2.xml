@@ -2,76 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ResultActivity2">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/vg_header"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_margin="22dp"
-        android:text="Seu IMC é:"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textSize="18dp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradiemt_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="26dp"
+            android:layout_margin="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_weight"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Calculadora IMC"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Confirme abaixo seu resultado e sua classificação"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:maxLength="5"
+            android:textSize="64sp"
+            android:textStyle="bold"
+            tools:text="23.99" />
+
+
+    </LinearLayout>
+
 
     <TextView
-        android:id="@+id/textview_result"
+        android:id="@+id/tv_classificação_label"
         android:layout_width="match_parent"
-        android:textAlignment="center"
-        android:padding="16dp"
         android:layout_height="wrap_content"
-        android:textSize="38sp"
-        tools:text="Ola bruno"/>
-    
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:text="A classificação do seu IMC é :"
+        android:textSize="18sp" />
+
     <TextView
-        android:id="@+id/textView_classificacao"
-        android:layout_margin="8dp"
-        tools:text="Classificação: Normal "
-        android:textSize="18sp"
+        android:id="@+id/tv_classificação"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:textColor="@color/cardview_dark_background"
-        android:layout_margin="16dp"
-        android:text="VEJA A TABELA ABAIXO:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:text="ABAIXO DE 18,5 ABAIXO DO PESO" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:text="ENTRE 18,5 E 24,9 PESO NORMAL"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:text="ENTRE 25 E 29,9 SOBREPESO"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:text="ENTRE 30 E 34,4 OBESIDADE I" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="14dp"
-        android:text="ENTRE 35 E 39,9 OBESIDADE II" />
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="NORMAL" />
 
 </LinearLayout>
